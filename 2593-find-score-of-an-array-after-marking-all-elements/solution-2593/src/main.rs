@@ -1,29 +1,31 @@
-use std::collections::HashSet;
+use std::cmp::Reverse;
+use std::collections::{BinaryHeap, HashSet};
 
 impl Solution {
     pub fn find_score(nums: Vec<i32>) -> i64 {
+        let mut heap = BinaryHeap::new();
+        nums.iter()
+            .enumerate()
+            .for_each(|(idx, it)| heap.push(Reverse((*it, idx))));
+
         let mut score = 0i64;
         let mut marked = HashSet::new();
-        while marked.len() != nums.len() {
-            let mut got_min = false;
-            let mut min_idx = nums.len() - 1;
-            let mut min = nums[min_idx];
-            for (idx, it) in nums.iter().rev().enumerate() {
-                if !marked.contains(&idx) && (!got_min || min >= *it) {
-                    got_min = true;
-                    min_idx = idx;
-                    min = *it;
-                }
+
+        while let Some(Reverse(tup)) = heap.pop() {
+            let (it, idx) = tup;
+            if marked.contains(&idx) {
+                continue;
             }
-            score += min as i64;
-            if min_idx > 0 {
-                marked.insert(min_idx - 1);
+            score += it as i64;
+            if idx > 0 {
+                marked.insert(idx - 1);
             }
-            marked.insert(min_idx);
-            if min_idx < nums.len() - 1 {
-                marked.insert(min_idx + 1);
+            marked.insert(idx);
+            if idx < nums.len() - 1 {
+                marked.insert(idx + 1);
             }
         }
+
         score
     }
 }
