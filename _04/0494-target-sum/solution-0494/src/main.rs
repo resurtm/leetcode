@@ -1,4 +1,29 @@
+use std::collections::HashMap;
+
 impl Solution {
+    fn dp(
+        nums: &Vec<i32>,
+        target: i32,
+        idx: i32,
+        curr: i32,
+        cache: &mut HashMap<(i32, i32), i32>,
+    ) -> i32 {
+        if let Some(&ex) = cache.get(&(idx, curr)) {
+            return ex;
+        }
+        if idx < 0 {
+            return if curr == target { 1 } else { 0 };
+        }
+        let pos = Self::dp(nums, target, idx - 1, curr + nums[idx as usize], cache);
+        let neg = Self::dp(nums, target, idx - 1, curr - nums[idx as usize], cache);
+        cache.insert((idx, curr), pos + neg);
+        pos + neg
+    }
+
+    pub fn find_target_sum_ways(nums: Vec<i32>, target: i32) -> i32 {
+        Self::dp(&nums, target, nums.len() as i32 - 1, 0, &mut HashMap::new())
+    }
+
     fn traverse(ops_inp: &Vec<char>, lev: i32, nums: &Vec<i32>, target: i32, res: &mut i32) {
         if lev == nums.len() as i32 {
             let found = nums.iter().enumerate().fold(0, |acc, (idx, &it)| {
@@ -16,7 +41,7 @@ impl Solution {
         });
     }
 
-    pub fn find_target_sum_ways(nums: Vec<i32>, target: i32) -> i32 {
+    pub fn find_target_sum_ways_bruteforce(nums: Vec<i32>, target: i32) -> i32 {
         let mut res = 0;
         ['-', '+']
             .iter()
