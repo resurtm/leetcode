@@ -1,61 +1,18 @@
-use std::collections::HashMap;
-
 impl Solution {
-    pub fn vowel_strings(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
-        let vowels = ['a', 'e', 'i', 'o', 'u'];
-
-        let mut sum: Vec<i32> = vec![0; words.len()];
-        words.iter().enumerate().for_each(|(idx, st)| {
-            let chs: Vec<_> = st.chars().collect();
-            let curr = if !vowels.contains(&chs[0]) || !vowels.contains(&chs[chs.len() - 1]) {
+    pub fn vowel_strings(w: Vec<String>, q: Vec<Vec<i32>>) -> Vec<i32> {
+        let v = ['a', 'e', 'i', 'o', 'u'];
+        let mut d: Vec<i32> = vec![0; w.len()];
+        w.iter().enumerate().for_each(|(i, s)| {
+            let s: Vec<_> = s.chars().collect();
+            let c = if !v.contains(&s[0]) || !v.contains(&s[s.len() - 1]) {
                 0
             } else {
                 1
             };
-            sum[idx] = curr + if idx == 0 { 0 } else { sum[idx - 1] };
+            d[i] = c + if i == 0 { 0 } else { d[i - 1] };
         });
-
-        queries
-            .iter()
-            .map(|int| {
-                sum[int[1] as usize]
-                    - if int[0] == 0 {
-                        0
-                    } else {
-                        sum[(int[0] - 1) as usize]
-                    }
-            })
-            .collect()
-    }
-
-    pub fn vowel_strings_slow(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
-        let vowels = vec!['a', 'e', 'i', 'o', 'u'];
-        let mut freq = HashMap::new();
-        words
-            .iter()
-            .enumerate()
-            .filter(|x| {
-                let c: Vec<_> = x.1.chars().collect();
-                vowels.contains(&c[0]) && vowels.contains(&c[c.len() - 1])
-            })
-            .for_each(|x| {
-                freq.insert(
-                    x.0 as i32,
-                    x.1.chars().fold(
-                        0,
-                        |acc, ch| if vowels.contains(&ch) { acc + 1 } else { acc },
-                    ),
-                );
-            });
-        queries
-            .iter()
-            .map(|x| {
-                let mut res = 0;
-                for i in x[0]..x[1] + 1 {
-                    res += if freq.contains_key(&i) { 1 } else { 0 };
-                }
-                res
-            })
+        q.iter()
+            .map(|i| d[i[1] as usize] - if i[0] == 0 { 0 } else { d[(i[0] - 1) as usize] })
             .collect()
     }
 }
