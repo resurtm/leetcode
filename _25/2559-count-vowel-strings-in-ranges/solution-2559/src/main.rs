@@ -2,6 +2,33 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn vowel_strings(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+        let mut sum: Vec<i32> = vec![0; words.len()];
+        words.iter().enumerate().for_each(|(idx, st)| {
+            let chs: Vec<_> = st.chars().collect();
+            let curr = if !vowels.contains(&chs[0]) || !vowels.contains(&chs[chs.len() - 1]) {
+                0
+            } else {
+                1
+            };
+            sum[idx] = curr + if idx == 0 { 0 } else { sum[idx - 1] };
+        });
+
+        queries
+            .iter()
+            .map(|int| {
+                sum[int[1] as usize]
+                    - if int[0] == 0 {
+                        0
+                    } else {
+                        sum[(int[0] - 1) as usize]
+                    }
+            })
+            .collect()
+    }
+
+    pub fn vowel_strings_slow(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
         let vowels = vec!['a', 'e', 'i', 'o', 'u'];
         let mut freq = HashMap::new();
         words
