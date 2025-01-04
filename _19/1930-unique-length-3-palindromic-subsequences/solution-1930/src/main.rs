@@ -2,27 +2,24 @@ use std::collections::HashSet;
 
 impl Solution {
     pub fn count_palindromic_subsequence(s: String) -> i32 {
-        let n = s.len();
-        let mut l: Vec<HashSet<char>> = vec![HashSet::new(); n + 1];
-        let mut r: Vec<HashSet<char>> = vec![HashSet::new(); n + 1];
+        let mut l = [usize::MAX; 26];
+        let mut r = [usize::MIN; 26];
 
-        for (i, c) in s.chars().enumerate() {
-            let mut t = l[i].clone();
-            t.insert(c);
-            l[i + 1] = t;
-
-            let mut t = r[n - i].clone();
-            t.insert(s.chars().nth(n - i - 1).unwrap());
-            r[n - i - 1] = t;
+        for (i, cr) in s.bytes().enumerate() {
+            let c = (cr - b'a') as usize;
+            l[c] = usize::min(l[c], i);
+            r[c] = usize::max(r[c], i);
         }
 
-        let mut res: HashSet<(char, char)> = HashSet::new();
-        for (i, c) in s.chars().enumerate() {
-            for &t in l[i].intersection(&r[i + 1]) {
-                res.insert((c, t));
+        let mut res = 0;
+        for cr in b'a'..=b'z' {
+            let c = (cr - b'a') as usize;
+            if l[c] < r[c] {
+                let t: HashSet<u8> = HashSet::from_iter(s[l[c] + 1..r[c]].bytes());
+                res += t.len() as i32;
             }
         }
-        res.len() as i32
+        res
     }
 }
 
@@ -43,7 +40,9 @@ fn main() {
     );
     println!(
         "4. {}",
-        Solution::count_palindromic_subsequence("aba".into()),
+        Solution::count_palindromic_subsequence(
+            "tlpjzdmtwderpkpmgoyrcxttiheassztncqvnfjeyxxp".into()
+        ),
     );
 }
 
@@ -67,5 +66,13 @@ mod tests {
     fn test_case3() {
         let actual = Solution::count_palindromic_subsequence("bbcbaba".into());
         assert_eq!(actual, 4);
+    }
+
+    #[test]
+    fn test_case4() {
+        let actual = Solution::count_palindromic_subsequence(
+            "tlpjzdmtwderpkpmgoyrcxttiheassztncqvnfjeyxxp".into(),
+        );
+        assert_eq!(actual, 161);
     }
 }
