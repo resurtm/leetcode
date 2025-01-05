@@ -1,22 +1,19 @@
 impl Solution {
-    pub fn shifting_letters(sr: String, shifts: Vec<Vec<i32>>) -> String {
-        let mut s = sr.as_bytes().to_vec();
+    pub fn shifting_letters(s: String, shifts: Vec<Vec<i32>>) -> String {
+        let mut diff = vec![0; s.len()];
         for shift in shifts.iter() {
             if let [start, end, dir] = shift[0..3] {
-                for i in start as usize..=end as usize {
-                    let mut ch = s[i];
-                    ch = if dir == 0 { ch - 1 } else { ch + 1 };
-                    if ch > b'z' {
-                        ch = b'a';
-                    }
-                    if ch < b'a' {
-                        ch = b'z';
-                    }
-                    s[i] = ch;
-                }
+                (start as usize..=end as usize).for_each(|i| {
+                    diff[i] = if dir == 0 { diff[i] - 1 } else { diff[i] + 1 } % 26;
+                });
             }
         }
-        String::from_utf8(s).unwrap()
+        let mut its = s.as_bytes().to_vec();
+        for (idx, it) in its.iter_mut().enumerate() {
+            let itn = ((*it - b'a') as i32 + diff[idx] % 26) % 26;
+            *it = (if itn < 0 { itn + 26 } else { itn }) as u8 + b'a';
+        }
+        String::from_utf8(its).unwrap()
     }
 }
 
