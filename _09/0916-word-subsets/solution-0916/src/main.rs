@@ -2,25 +2,24 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn word_subsets(ws0: Vec<String>, ws1: Vec<String>) -> Vec<String> {
-        let ws1: Vec<HashMap<_, _>> = ws1
-            .iter()
-            .map(|w1| {
-                w1.bytes().fold(HashMap::new(), |mut mt, it| {
-                    mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
-                    mt
-                })
-            })
-            .collect();
-        ws0.iter().fold(Vec::new(), |mut r, w0| {
-            let ma = w0.bytes().fold(HashMap::new(), |mut mt, it| {
+        let fr1 = ws1.iter().fold(HashMap::new(), |mut r, w1| {
+            let t = w1.bytes().fold(HashMap::new(), |mut mt, it| {
                 mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
                 mt
             });
-            for w1 in ws1.iter() {
-                for (ch, nb) in w1.iter() {
-                    if *ma.get(ch).unwrap_or(&0) < *nb {
-                        return r;
-                    }
+            t.iter().for_each(|(ch, n)| {
+                r.insert(*ch, *r.get(ch).unwrap_or(&0).max(n));
+            });
+            r
+        });
+        ws0.iter().fold(Vec::new(), |mut r, w0| {
+            let fr0 = w0.bytes().fold(HashMap::new(), |mut mt, it| {
+                mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
+                mt
+            });
+            for (ch, n) in fr1.iter() {
+                if *fr0.get(ch).unwrap_or(&0) < *n {
+                    return r;
                 }
             }
             r.push(w0.to_owned());
