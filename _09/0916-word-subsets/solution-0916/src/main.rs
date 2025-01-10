@@ -2,27 +2,28 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn word_subsets(ws0: Vec<String>, ws1: Vec<String>) -> Vec<String> {
+        let ws1: Vec<HashMap<_, _>> = ws1
+            .iter()
+            .map(|w1| {
+                w1.bytes().fold(HashMap::new(), |mut mt, it| {
+                    mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
+                    mt
+                })
+            })
+            .collect();
         ws0.iter().fold(Vec::new(), |mut r, w0| {
             let ma = w0.bytes().fold(HashMap::new(), |mut mt, it| {
                 mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
                 mt
             });
-            let mut ok = true;
-            'outer: for w1 in ws1.iter() {
-                let mb = w1.bytes().fold(HashMap::new(), |mut mt, it| {
-                    mt.entry(it).and_modify(|n| *n += 1).or_insert(1);
-                    mt
-                });
-                for (ch, nb) in mb.iter() {
+            for w1 in ws1.iter() {
+                for (ch, nb) in w1.iter() {
                     if *ma.get(ch).unwrap_or(&0) < *nb {
-                        ok = false;
-                        break 'outer;
+                        return r;
                     }
                 }
             }
-            if ok {
-                r.push(w0.to_owned());
-            }
+            r.push(w0.to_owned());
             r
         })
     }
