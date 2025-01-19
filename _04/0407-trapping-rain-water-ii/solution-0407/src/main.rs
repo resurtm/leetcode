@@ -1,88 +1,39 @@
-use std::collections::{HashSet, VecDeque};
+use std::cmp::Reverse;
+use std::collections::{BinaryHeap, HashSet};
 
 impl Solution {
     #[allow(dead_code)]
     pub fn trap_rain_water(g: Vec<Vec<i32>>) -> i32 {
-        let top = g.iter().fold(0, |acc, gt| {
-            acc.max(gt.iter().fold(0, |acc, x| acc.max(*x)))
-        });
+        let (m, n, mi, ni) = (g.len(), g[0].len(), g.len() as i32, g[0].len() as i32);
         let mut v = HashSet::new();
-        g.iter().enumerate().for_each(|(i, gt)| {
-            (0..gt.len()).for_each(|j| {
-                Self::bfs((i as i32, j as i32, top + 1), &g, &mut v);
-            });
-        });
-        println!("{:?}", v);
-        v.len() as i32
-    }
-
-    fn bfs(pi: (i32, i32, i32), g: &[Vec<i32>], v: &mut HashSet<(i32, i32, i32)>) -> bool {
-        let (m, n) = (g.len() as i32, g[0].len() as i32);
-        let mut bad = HashSet::new();
-        let mut w = HashSet::new();
-        w.insert(pi);
-        let mut q = VecDeque::new();
-        q.push_back(pi);
-        while !q.is_empty() {
-            if let Some(p) = q.pop_front() {
-                if !bad.contains(&p) {
-                    let mut w2 = HashSet::new();
-                    if Self::dfs(p, g, &mut w2) {
-                        v.insert(p);
-                    } else {
-                        bad.extend(w2);
-                    }
+        let mut h = BinaryHeap::new();
+        (0..m).for_each(|i| {
+            (0..n).for_each(|j| {
+                if i == 0 || j == 0 || i == m - 1 || j == n - 1 {
+                    v.insert((i as i32, j as i32));
+                    h.push(Reverse((g[i][j], i as i32, j as i32)));
                 }
-
-                let dirs = [
-                    (p.0 - 1, p.1, p.2),
-                    (p.0 + 1, p.1, p.2),
-                    (p.0, p.1 - 1, p.2),
-                    (p.0, p.1 + 1, p.2),
-                    (p.0, p.1, p.2 - 1),
-                ];
-                let dirs = dirs
+            })
+        });
+        let mut r = 0;
+        while !h.is_empty() {
+            if let Some(it) = h.pop() {
+                let (k, i, j) = it.0;
+                let ds = [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]
                     .iter()
-                    .filter(|(x, y, z)| *x >= 0 && *x < m && *y >= 0 && *y < n && *z >= 0)
-                    .filter(|(x, y, z)| g[*x as usize][*y as usize] < *z)
-                    .filter(|&t| !w.contains(t))
-                    .map(|(x, y, z)| (*x, *y, *z))
-                    .collect::<Vec<(i32, i32, i32)>>();
-                dirs.iter().for_each(|&t| {
-                    w.insert(t);
-                    q.push_back(t);
+                    .filter(|(x, y)| *x >= 0 && *y >= 0 && *x < mi && *y < ni)
+                    .filter(|&t| !v.contains(t))
+                    .map(|(x, y)| (*x, *y))
+                    .collect::<Vec<(i32, i32)>>();
+                ds.iter().for_each(|(x, y)| {
+                    let gh = g[*x as usize][*y as usize];
+                    r += 0.max(k - gh);
+                    v.insert((*x, *y));
+                    h.push(Reverse((k.max(gh), *x, *y)));
                 });
             }
         }
-        true
-    }
-
-    fn dfs(p: (i32, i32, i32), g: &[Vec<i32>], w: &mut HashSet<(i32, i32, i32)>) -> bool {
-        w.insert(p);
-        let dirs = [
-            (p.0 - 1, p.1, p.2),
-            (p.0 + 1, p.1, p.2),
-            (p.0, p.1 - 1, p.2),
-            (p.0, p.1 + 1, p.2),
-        ];
-        if dirs
-            .iter()
-            .any(|(x, y, _)| *x < 0 || *x >= g.len() as i32 || *y < 0 || *y >= g[0].len() as i32)
-        {
-            return false;
-        }
-        let dirs: Vec<(i32, i32, i32)> = dirs
-            .iter()
-            .filter(|&t| !w.contains(t))
-            .filter(|(x, y, z)| g[*x as usize][*y as usize] < *z)
-            .map(|(x, y, z)| (*x, *y, *z))
-            .collect();
-        for &t in dirs.iter() {
-            if !Self::dfs(t, g, w) {
-                return false;
-            }
-        }
-        true
+        r
     }
 }
 
