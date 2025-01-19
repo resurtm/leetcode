@@ -9,22 +9,31 @@ impl Solution {
         let mut v = HashSet::new();
         g.iter().enumerate().for_each(|(i, gt)| {
             (0..gt.len()).for_each(|j| {
-                Self::bfs1((i as i32, j as i32, top + 1), &g, &mut v);
+                Self::bfs((i as i32, j as i32, top + 1), &g, &mut v);
             });
         });
         println!("{:?}", v);
         v.len() as i32
     }
 
-    fn bfs1(pi: (i32, i32, i32), g: &[Vec<i32>], v: &mut HashSet<(i32, i32, i32)>) -> bool {
+    fn bfs(pi: (i32, i32, i32), g: &[Vec<i32>], v: &mut HashSet<(i32, i32, i32)>) -> bool {
         let (m, n) = (g.len() as i32, g[0].len() as i32);
+        let mut bad = HashSet::new();
         let mut w = HashSet::new();
         w.insert(pi);
         let mut q = VecDeque::new();
         q.push_back(pi);
         while !q.is_empty() {
             if let Some(p) = q.pop_front() {
-                Self::check(p, g, v);
+                if !bad.contains(&p) {
+                    let mut w2 = HashSet::new();
+                    if Self::dfs(p, g, &mut w2) {
+                        v.insert(p);
+                    } else {
+                        bad.extend(w2);
+                    }
+                }
+
                 let dirs = [
                     (p.0 - 1, p.1, p.2),
                     (p.0 + 1, p.1, p.2),
@@ -48,41 +57,32 @@ impl Solution {
         true
     }
 
-    fn check(pi: (i32, i32, i32), g: &[Vec<i32>], v: &mut HashSet<(i32, i32, i32)>) {
-        let (m, n) = (g.len() as i32, g[0].len() as i32);
-        for x in pi.0 + 1..=m {
-            if x == m {
-                return;
-            }
-            if g[x as usize][pi.1 as usize] >= pi.2 {
-                break;
+    fn dfs(p: (i32, i32, i32), g: &[Vec<i32>], w: &mut HashSet<(i32, i32, i32)>) -> bool {
+        w.insert(p);
+        let dirs = [
+            (p.0 - 1, p.1, p.2),
+            (p.0 + 1, p.1, p.2),
+            (p.0, p.1 - 1, p.2),
+            (p.0, p.1 + 1, p.2),
+        ];
+        if dirs
+            .iter()
+            .any(|(x, y, _)| *x < 0 || *x >= g.len() as i32 || *y < 0 || *y >= g[0].len() as i32)
+        {
+            return false;
+        }
+        let dirs: Vec<(i32, i32, i32)> = dirs
+            .iter()
+            .filter(|&t| !w.contains(t))
+            .filter(|(x, y, z)| g[*x as usize][*y as usize] < *z)
+            .map(|(x, y, z)| (*x, *y, *z))
+            .collect();
+        for &t in dirs.iter() {
+            if !Self::dfs(t, g, w) {
+                return false;
             }
         }
-        for x in (-1..pi.0).rev() {
-            if x == -1 {
-                return;
-            }
-            if g[x as usize][pi.1 as usize] >= pi.2 {
-                break;
-            }
-        }
-        for y in pi.1 + 1..=n {
-            if y == n {
-                return;
-            }
-            if g[pi.0 as usize][y as usize] >= pi.2 {
-                break;
-            }
-        }
-        for y in (-1..pi.1).rev() {
-            if y == -1 {
-                return;
-            }
-            if g[pi.0 as usize][y as usize] >= pi.2 {
-                break;
-            }
-        }
-        v.insert(pi);
+        true
     }
 }
 
