@@ -1,42 +1,28 @@
 impl Solution {
     #[allow(dead_code)]
     pub fn eventual_safe_nodes(graph: Vec<Vec<i32>>) -> Vec<i32> {
-        let mut r = graph.iter().enumerate().fold(vec![], |mut acc, (i, x)| {
-            if x.is_empty() {
-                acc.push(i as i32);
+        let len = graph.len();
+        let mut st = vec![0u8; len];
+        (0..len).fold(vec![], |mut acc, x| {
+            if Self::dfs(x, &graph, &mut st) {
+                acc.push(x as i32);
             }
             acc
-        });
-        for (idx, next) in graph.iter().enumerate() {
-            let idx = idx as i32;
-            if r.contains(&idx) {
-                continue;
-            }
-            let mut paths: Vec<Vec<_>> = next.iter().map(|x| vec![idx, *x]).collect();
-            let mut add = true;
-            'outer: while !paths.is_empty() {
-                for path in std::mem::take(&mut paths).iter() {
-                    let last = *path.last().unwrap();
-                    if r.contains(&last) {
-                        continue;
-                    }
-                    for g in graph[last as usize].iter() {
-                        if path.contains(g) {
-                            add = false;
-                            break 'outer;
-                        }
-                        let mut new_path = path.clone();
-                        new_path.push(*g);
-                        paths.push(new_path);
-                    }
-                }
-            }
-            if add {
-                r.push(idx);
+        })
+    }
+
+    fn dfs(x: usize, graph: &[Vec<i32>], st: &mut [u8]) -> bool {
+        if st[x] != 0 {
+            return st[x] == 1;
+        }
+        st[x] = 2;
+        for &y in graph[x].iter() {
+            if !Self::dfs(y as usize, graph, st) {
+                return false;
             }
         }
-        r.sort();
-        r
+        st[x] = 1;
+        true
     }
 }
 
