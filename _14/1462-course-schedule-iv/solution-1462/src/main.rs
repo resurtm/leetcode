@@ -7,18 +7,28 @@ impl Solution {
         prerequisites: Vec<Vec<i32>>,
         queries: Vec<Vec<i32>>,
     ) -> Vec<bool> {
-        let links =
-            prerequisites
-                .iter()
-                .fold(vec![vec![]; num_courses as usize], |mut acc, link| {
-                    let (src, dst) = (link[0], link[1]);
-                    acc[dst as usize].push(src);
-                    acc
-                });
+        let (links, links_rev) = prerequisites.iter().fold(
+            (
+                vec![vec![]; num_courses as usize],
+                vec![vec![]; num_courses as usize],
+            ),
+            |mut acc: (Vec<Vec<i32>>, Vec<Vec<i32>>), link| {
+                let (src, dst) = (link[0], link[1]);
+                acc.0[src as usize].push(dst);
+                acc.1[dst as usize].push(src);
+                acc
+            },
+        );
 
-        let (mut dirs, mut acc) = (vec![HashSet::new(); num_courses as usize], vec![]);
+        let (mut dirs, mut acc, mut viz) = (
+            vec![HashSet::new(); num_courses as usize],
+            vec![],
+            HashSet::new(),
+        );
         for course in 0..num_courses {
-            Self::dfs(course, &mut acc, &links, &mut dirs);
+            if links[course as usize].is_empty() {
+                Self::dfs(course, &mut acc, &links_rev, &mut dirs, &mut viz);
+            }
         }
 
         queries
@@ -30,11 +40,20 @@ impl Solution {
             .collect()
     }
 
-    fn dfs(curr: i32, acc: &mut Vec<i32>, links: &[Vec<i32>], dirs: &mut [HashSet<i32>]) {
+    fn dfs(
+        curr: i32,
+        acc: &mut Vec<i32>,
+        links: &[Vec<i32>],
+        dirs: &mut [HashSet<i32>],
+        viz: &mut HashSet<i32>,
+    ) {
         dirs[curr as usize].extend(acc.clone());
+        viz.insert(curr);
         acc.push(curr);
-        for &link in links[curr as usize].iter() {
-            Self::dfs(link, acc, links, dirs);
+        for link in links[curr as usize].iter() {
+            // if !viz.contains(link) {
+            Self::dfs(*link, acc, links, dirs, viz);
+            // }
         }
         acc.pop();
     }
