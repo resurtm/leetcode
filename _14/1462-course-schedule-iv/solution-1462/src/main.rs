@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 impl Solution {
     #[allow(dead_code)]
     pub fn check_if_prerequisite(
@@ -7,55 +5,25 @@ impl Solution {
         prerequisites: Vec<Vec<i32>>,
         queries: Vec<Vec<i32>>,
     ) -> Vec<bool> {
-        let (links, links_rev) = prerequisites.iter().fold(
-            (
-                vec![vec![]; num_courses as usize],
-                vec![vec![]; num_courses as usize],
-            ),
-            |mut acc: (Vec<Vec<i32>>, Vec<Vec<i32>>), link| {
-                let (src, dst) = (link[0], link[1]);
-                acc.0[src as usize].push(dst);
-                acc.1[dst as usize].push(src);
-                acc
-            },
-        );
-
-        let (mut dirs, mut acc, mut viz) = (
-            vec![HashSet::new(); num_courses as usize],
-            vec![],
-            HashSet::new(),
-        );
-        for course in 0..num_courses {
-            if links[course as usize].is_empty() {
-                Self::dfs(course, &mut acc, &links_rev, &mut dirs, &mut viz);
+        let mut reach = vec![vec![false; num_courses as usize]; num_courses as usize];
+        for prerequisite in prerequisites.iter() {
+            let (a, b) = (prerequisite[0] as usize, prerequisite[1] as usize);
+            reach[a][b] = true;
+        }
+        for k in 0..num_courses as usize {
+            for i in 0..num_courses as usize {
+                for j in 0..num_courses as usize {
+                    reach[i][j] = reach[i][j] || reach[i][k] && reach[k][j];
+                }
             }
         }
-
         queries
             .iter()
             .map(|link| {
-                let (src, dst) = (link[0], link[1]);
-                dirs[src as usize].contains(&dst)
+                let (src, dst) = (link[0] as usize, link[1] as usize);
+                reach[src][dst]
             })
             .collect()
-    }
-
-    fn dfs(
-        curr: i32,
-        acc: &mut Vec<i32>,
-        links: &[Vec<i32>],
-        dirs: &mut [HashSet<i32>],
-        viz: &mut HashSet<i32>,
-    ) {
-        dirs[curr as usize].extend(acc.clone());
-        viz.insert(curr);
-        acc.push(curr);
-        for link in links[curr as usize].iter() {
-            // if !viz.contains(link) {
-            Self::dfs(*link, acc, links, dirs, viz);
-            // }
-        }
-        acc.pop();
     }
 }
 
