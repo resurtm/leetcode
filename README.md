@@ -2,6 +2,7 @@
 
 ```
 .
+├── LICENSE.md
 ├── README.md
 ├── _00
 │   ├── 0013-roman-to-integer
@@ -144,7 +145,8 @@
 │   ├── 2425-bitwise-xor-of-all-pairings
 │   ├── 2429-minimize-xor
 │   ├── 2466-count-ways-to-build-good-strings
-│   └── 2471-minimum-number-of-operations-to-sort-a-binary-tree-by-level
+│   ├── 2471-minimum-number-of-operations-to-sort-a-binary-tree-by-level
+│   └── 2493-divide-nodes-into-the-maximum-number-of-groups
 ├── _25
 │   ├── 2501-longest-square-streak-in-an-array
 │   ├── 2516-take-k-of-each-character-from-left-and-right
