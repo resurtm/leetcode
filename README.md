@@ -68,6 +68,7 @@
 │   └── 0744-find-smallest-letter-greater-than-target
 ├── _08
 │   ├── 0802-find-eventual-safe-states
+│   ├── 0827-making-a-large-island
 │   ├── 0840-magic-squares-in-grid
 │   ├── 0841-keys-and-rooms
 │   ├── 0874-walking-robot-simulation
@@ -76,6 +77,7 @@
 │   ├── 0916-word-subsets
 │   ├── 0933-number-of-recent-calls
 │   ├── 0934-shortest-bridge
+│   ├── 0967-numbers-with-same-consecutive-differences
 │   └── 0983-minimum-cost-for-tickets
 ├── _10
 │   ├── 1014-best-sightseeing-pair
@@ -170,13 +172,16 @@
 │   ├── 3010-divide-an-array-into-subarrays-with-minimum-cost-i
 │   ├── 3042-count-prefix-and-suffix-pairs-i
 │   └── 3043-find-the-length-of-the-longest-common-prefix
-└── _32
-    ├── 3223-minimum-length-of-string-after-operations
-    ├── 3243-shortest-distance-after-road-addition-queries-i
-    ├── 3254-find-the-power-of-k-size-subarrays-i
-    └── 3264-final-array-state-after-k-multiplication-operations-i
+├── _31
+│   └── 3151-special-array-i
+├── _32
+│   ├── 3223-minimum-length-of-string-after-operations
+│   ├── 3243-shortest-distance-after-road-addition-queries-i
+│   ├── 3254-find-the-power-of-k-size-subarrays-i
+│   └── 3264-final-array-state-after-k-multiplication-operations-i
+└── regen-readme.sh
 
-170 directories, 1 file
+175 directories, 3 files
 ```
 
 # License
