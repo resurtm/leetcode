@@ -110,6 +110,7 @@
 │   └── 1684-count-the-number-of-consistent-strings
 ├── _17
 │   ├── 1732-find-the-highest-altitude
+│   ├── 1752-check-if-array-is-sorted-and-rotated
 │   ├── 1765-map-of-highest-peak
 │   ├── 1769-minimum-number-of-operations-to-move-all-balls-to-each-box
 │   └── 1792-maximum-average-pass-ratio
@@ -181,7 +182,7 @@
 │   └── 3264-final-array-state-after-k-multiplication-operations-i
 └── regen-readme.sh
 
-175 directories, 3 files
+176 directories, 3 files
 ```
 
 # License
