@@ -59,7 +59,8 @@
 │   ├── 0637-average-of-levels-in-binary-tree
 │   ├── 0641-design-circular-deque
 │   ├── 0643-maximum-average-subarray-i
-│   └── 0684-redundant-connection
+│   ├── 0684-redundant-connection
+│   └── 0696-count-binary-substrings
 ├── _07
 │   ├── 0700-search-in-a-binary-search-tree
 │   ├── 0703-kth-largest-element-in-a-stream
@@ -182,7 +183,7 @@
 │   └── 3264-final-array-state-after-k-multiplication-operations-i
 └── regen-readme.sh
 
-176 directories, 3 files
+177 directories, 3 files
 ```
 
 # License
