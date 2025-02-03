@@ -175,6 +175,7 @@
 │   ├── 3042-count-prefix-and-suffix-pairs-i
 │   └── 3043-find-the-length-of-the-longest-common-prefix
 ├── _31
+│   ├── 3105-longest-strictly-increasing-or-strictly-decreasing-subarray
 │   └── 3151-special-array-i
 ├── _32
 │   ├── 3223-minimum-length-of-string-after-operations
@@ -183,7 +184,7 @@
 │   └── 3264-final-array-state-after-k-multiplication-operations-i
 └── regen-readme.sh
 
-177 directories, 3 files
+179 directories, 3 files
 ```
 
 # License
