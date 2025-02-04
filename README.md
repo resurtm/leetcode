@@ -116,6 +116,7 @@
 │   ├── 1769-minimum-number-of-operations-to-move-all-balls-to-each-box
 │   └── 1792-maximum-average-pass-ratio
 ├── _18
+│   ├── 1800-maximum-ascending-subarray-sum
 │   ├── 1861-rotating-the-box
 │   └── 1894-find-the-student-that-will-replace-the-chalk
 ├── _19
@@ -184,7 +185,7 @@
 │   └── 3264-final-array-state-after-k-multiplication-operations-i
 └── regen-readme.sh
 
-179 directories, 3 files
+180 directories, 3 files
 ```
 
 # License
