@@ -114,6 +114,7 @@
 │   ├── 1752-check-if-array-is-sorted-and-rotated
 │   ├── 1765-map-of-highest-peak
 │   ├── 1769-minimum-number-of-operations-to-move-all-balls-to-each-box
+│   ├── 1790-check-if-one-string-swap-can-make-strings-equal
 │   └── 1792-maximum-average-pass-ratio
 ├── _18
 │   ├── 1800-maximum-ascending-subarray-sum
