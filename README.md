@@ -110,6 +110,7 @@
 │   ├── 1657-determine-if-two-strings-are-close
 │   └── 1684-count-the-number-of-consistent-strings
 ├── _17
+│   ├── 1726-tuple-with-same-product
 │   ├── 1732-find-the-highest-altitude
 │   ├── 1752-check-if-array-is-sorted-and-rotated
 │   ├── 1765-map-of-highest-peak
@@ -185,8 +186,6 @@
 │   ├── 3254-find-the-power-of-k-size-subarrays-i
 │   └── 3264-final-array-state-after-k-multiplication-operations-i
 └── regen-readme.sh
-
-180 directories, 3 files
 ```
 
 # License
