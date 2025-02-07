@@ -179,7 +179,8 @@
 │   └── 3043-find-the-length-of-the-longest-common-prefix
 ├── _31
 │   ├── 3105-longest-strictly-increasing-or-strictly-decreasing-subarray
-│   └── 3151-special-array-i
+│   ├── 3151-special-array-i
+│   └── 3160-find-the-number-of-distinct-colors-among-the-balls
 ├── _32
 │   ├── 3223-minimum-length-of-string-after-operations
 │   ├── 3243-shortest-distance-after-road-addition-queries-i
