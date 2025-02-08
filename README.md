@@ -144,6 +144,7 @@
 │   └── 2287-rearrange-characters-to-make-target-string
 ├── _23
 │   ├── 2326-spiral-matrix-iv
+│   ├── 2349-design-a-number-container-system
 │   ├── 2381-shifting-letters-ii
 │   └── 2389-longest-subsequence-with-limited-sum
 ├── _24
