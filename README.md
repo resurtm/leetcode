@@ -110,6 +110,7 @@
 │   ├── 1657-determine-if-two-strings-are-close
 │   └── 1684-count-the-number-of-consistent-strings
 ├── _17
+│   ├── 1720-decode-xored-array
 │   ├── 1726-tuple-with-same-product
 │   ├── 1732-find-the-highest-altitude
 │   ├── 1752-check-if-array-is-sorted-and-rotated

@@ -1,9 +1,9 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 rm -rf ./README.md
 touch ./README.md
 
-echo '# Index / TOC\n\n```' >>./README.md
+printf '# Index / TOC\n\n```\n' >>./README.md
 tree -L 2 >>./README.md
 if [[ "$(uname)" == 'Darwin' ]]; then
   # https://formulae.brew.sh/formula/coreutils
@@ -12,4 +12,4 @@ else
   head -n -2 ./README.md >./README.md.tmp
 fi
 mv ./README.md.tmp ./README.md
-echo '```\n\n# License\n\n[WTFPL](./LICENSE.md)' >>./README.md
+printf '```\n\n# License\n\n[WTFPL](./LICENSE.md)' >>./README.md
