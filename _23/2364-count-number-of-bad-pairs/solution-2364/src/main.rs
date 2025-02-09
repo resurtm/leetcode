@@ -3,23 +3,13 @@ use std::collections::HashMap;
 impl Solution {
     #[allow(dead_code)]
     pub fn count_bad_pairs(nums: Vec<i32>) -> i64 {
-        let (mut res, mut count, len) = (0, 0, nums.len());
-        let mut cache: HashMap<i32, Vec<usize>> = HashMap::new();
+        let (mut res, len) = (0, nums.len());
+        let count = (len * (len - 1) / 2) as i64;
+        let mut cache = HashMap::new();
         for (i, &num) in nums.iter().enumerate() {
-            count += (len - i - 1) as i64;
-            for x in 1..num {
-                if let Some(js) = cache.get(&x) {
-                    for &j in js.iter() {
-                        if num - i as i32 == x - j as i32 {
-                            res += 1;
-                        }
-                    }
-                }
-            }
-            cache
-                .entry(num)
-                .and_modify(|e| e.push(i))
-                .or_insert(vec![i]);
+            let val = i as i32 - num;
+            res += *cache.get(&val).unwrap_or(&0);
+            cache.insert(val, *cache.get(&val).unwrap_or(&0) + 1);
         }
         count - res
     }
