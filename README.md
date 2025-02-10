@@ -170,6 +170,8 @@
 │   └── 2683-neighboring-bitwise-xor
 ├── _27
 │   └── 2762-continuous-subarrays
+├── _28
+│   └── 2855-minimum-right-shifts-to-sort-the-array
 ├── _29
 │   ├── 2924-find-champion-ii
 │   ├── 2937-make-three-strings-equal
