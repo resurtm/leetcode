@@ -183,7 +183,8 @@
 ├── _31
 │   ├── 3105-longest-strictly-increasing-or-strictly-decreasing-subarray
 │   ├── 3151-special-array-i
-│   └── 3160-find-the-number-of-distinct-colors-among-the-balls
+│   ├── 3160-find-the-number-of-distinct-colors-among-the-balls
+│   └── 3174-clear-digits
 ├── _32
 │   ├── 3223-minimum-length-of-string-after-operations
 │   ├── 3243-shortest-distance-after-road-addition-queries-i

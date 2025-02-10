@@ -1,0 +1,6 @@
+[package]
+name = "solution-3174"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
