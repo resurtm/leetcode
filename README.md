@@ -124,6 +124,7 @@
 │   └── 1894-find-the-student-that-will-replace-the-chalk
 ├── _19
 │   ├── 1905-count-sub-islands
+│   ├── 1910-remove-all-occurrences-of-a-substring
 │   ├── 1930-unique-length-3-palindromic-subsequences
 │   ├── 1945-sum-of-digits-of-string-after-convert
 │   └── 1975-maximum-matrix-sum
