@@ -146,6 +146,7 @@
 │   └── 2287-rearrange-characters-to-make-target-string
 ├── _23
 │   ├── 2326-spiral-matrix-iv
+│   ├── 2342-max-sum-of-a-pair-with-equal-sum-of-digits
 │   ├── 2349-design-a-number-container-system
 │   ├── 2364-count-number-of-bad-pairs
 │   ├── 2381-shifting-letters-ii
