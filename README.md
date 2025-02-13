@@ -161,6 +161,7 @@
 │   └── 2493-divide-nodes-into-the-maximum-number-of-groups
 ├── _25
 │   ├── 2501-longest-square-streak-in-an-array
+│   ├── 2511-maximum-enemy-forts-that-can-be-captured
 │   ├── 2516-take-k-of-each-character-from-left-and-right
 │   ├── 2558-take-gifts-from-the-richest-pile
 │   ├── 2559-count-vowel-strings-in-ranges
