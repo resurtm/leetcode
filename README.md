@@ -145,6 +145,7 @@
 │   ├── 2270-number-of-ways-to-split-array
 │   └── 2287-rearrange-characters-to-make-target-string
 ├── _23
+│   ├── 2316-count-unreachable-pairs-of-nodes-in-an-undirected-graph
 │   ├── 2326-spiral-matrix-iv
 │   ├── 2342-max-sum-of-a-pair-with-equal-sum-of-digits
 │   ├── 2349-design-a-number-container-system
