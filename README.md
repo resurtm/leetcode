@@ -51,6 +51,7 @@
 ├── _05
 │   ├── 0515-find-largest-value-in-each-tree-row
 │   ├── 0539-minimum-time-difference
+│   ├── 0561-array-partition
 │   ├── 0590-n-ary-tree-postorder-traversal
 │   └── 0592-fraction-addition-and-subtraction
 ├── _06
