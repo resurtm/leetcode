@@ -184,7 +184,8 @@
 ├── _30
 │   ├── 3010-divide-an-array-into-subarrays-with-minimum-cost-i
 │   ├── 3042-count-prefix-and-suffix-pairs-i
-│   └── 3043-find-the-length-of-the-longest-common-prefix
+│   ├── 3043-find-the-length-of-the-longest-common-prefix
+│   └── 3066-minimum-operations-to-exceed-threshold-value-ii
 ├── _31
 │   ├── 3105-longest-strictly-increasing-or-strictly-decreasing-subarray
 │   ├── 3151-special-array-i
