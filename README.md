@@ -91,6 +91,7 @@
 │   ├── 1310-xor-queries-of-a-subarray
 │   ├── 1331-rank-transform-of-an-array
 │   ├── 1346-check-if-n-and-its-double-exist
+│   ├── 1352-product-of-the-last-k-numbers
 │   ├── 1368-minimum-cost-to-make-at-least-one-valid-path-in-a-grid
 │   ├── 1376-time-needed-to-inform-all-employees
 │   └── 1381-design-a-stack-with-increment-operation
