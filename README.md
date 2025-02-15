@@ -4,6 +4,7 @@
 .
 ├── LICENSE.md
 ├── README.md
+├── regen-readme.sh
 ├── _00
 │   ├── 0013-roman-to-integer
 │   ├── 0015-3sum
@@ -173,7 +174,8 @@
 │   ├── 2657-find-the-prefix-common-array-of-two-arrays
 │   ├── 2658-maximum-number-of-fish-in-a-grid
 │   ├── 2661-first-completely-painted-row-or-column
-│   └── 2683-neighboring-bitwise-xor
+│   ├── 2683-neighboring-bitwise-xor
+│   └── 2698-find-the-punishment-number-of-an-integer
 ├── _27
 │   └── 2762-continuous-subarrays
 ├── _28
@@ -194,12 +196,11 @@
 │   ├── 3151-special-array-i
 │   ├── 3160-find-the-number-of-distinct-colors-among-the-balls
 │   └── 3174-clear-digits
-├── _32
-│   ├── 3223-minimum-length-of-string-after-operations
-│   ├── 3243-shortest-distance-after-road-addition-queries-i
-│   ├── 3254-find-the-power-of-k-size-subarrays-i
-│   └── 3264-final-array-state-after-k-multiplication-operations-i
-└── regen-readme.sh
+└── _32
+    ├── 3223-minimum-length-of-string-after-operations
+    ├── 3243-shortest-distance-after-road-addition-queries-i
+    ├── 3254-find-the-power-of-k-size-subarrays-i
+    └── 3264-final-array-state-after-k-multiplication-operations-i
 ```
 
 # License
