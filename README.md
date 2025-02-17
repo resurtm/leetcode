@@ -85,7 +85,8 @@
 ├── _10
 │   ├── 1014-best-sightseeing-pair
 │   ├── 1071-greatest-common-divisor-of-strings
-│   └── 1072-flip-columns-for-maximum-number-of-equal-rows
+│   ├── 1072-flip-columns-for-maximum-number-of-equal-rows
+│   └── 1079-letter-tile-possibilities
 ├── _12
 │   └── 1267-count-servers-that-communicate
 ├── _13
