@@ -100,6 +100,7 @@
 ├── _14
 │   ├── 1400-construct-k-palindrome-strings
 │   ├── 1408-string-matching-in-an-array
+│   ├── 1415-the-k-th-lexicographical-string-of-all-happy-strings-of-length-n
 │   ├── 1422-maximum-score-after-splitting-a-string
 │   ├── 1431-kids-with-the-greatest-number-of-candies
 │   ├── 1448-count-good-nodes-in-binary-tree
