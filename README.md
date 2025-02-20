@@ -133,7 +133,8 @@
 │   ├── 1910-remove-all-occurrences-of-a-substring
 │   ├── 1930-unique-length-3-palindromic-subsequences
 │   ├── 1945-sum-of-digits-of-string-after-convert
-│   └── 1975-maximum-matrix-sum
+│   ├── 1975-maximum-matrix-sum
+│   └── 1980-find-unique-binary-string
 ├── _20
 │   ├── 2017-grid-game
 │   ├── 2022-convert-1d-array-into-2d-array
