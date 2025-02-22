@@ -84,6 +84,7 @@
 │   └── 0983-minimum-cost-for-tickets
 ├── _10
 │   ├── 1014-best-sightseeing-pair
+│   ├── 1028-recover-a-tree-from-preorder-traversal
 │   ├── 1071-greatest-common-divisor-of-strings
 │   ├── 1072-flip-columns-for-maximum-number-of-equal-rows
 │   └── 1079-letter-tile-possibilities
