@@ -75,7 +75,8 @@
 │   ├── 0840-magic-squares-in-grid
 │   ├── 0841-keys-and-rooms
 │   ├── 0874-walking-robot-simulation
-│   └── 0884-uncommon-words-from-two-sentences
+│   ├── 0884-uncommon-words-from-two-sentences
+│   └── 0889-construct-binary-tree-from-preorder-and-postorder-traversal
 ├── _09
 │   ├── 0916-word-subsets
 │   ├── 0933-number-of-recent-calls
