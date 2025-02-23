@@ -95,6 +95,7 @@
 │   └── 1267-count-servers-that-communicate
 ├── _13
 │   ├── 1310-xor-queries-of-a-subarray
+│   ├── 1329-sort-the-matrix-diagonally
 │   ├── 1331-rank-transform-of-an-array
 │   ├── 1346-check-if-n-and-its-double-exist
 │   ├── 1352-product-of-the-last-k-numbers
