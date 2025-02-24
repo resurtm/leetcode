@@ -68,7 +68,8 @@
 │   ├── 0703-kth-largest-element-in-a-stream
 │   ├── 0724-find-pivot-index
 │   ├── 0725-split-linked-list-in-parts
-│   └── 0744-find-smallest-letter-greater-than-target
+│   ├── 0744-find-smallest-letter-greater-than-target
+│   └── 0791-custom-sort-string
 ├── _08
 │   ├── 0802-find-eventual-safe-states
 │   ├── 0827-making-a-large-island
