@@ -116,6 +116,8 @@
 │   ├── 1462-course-schedule-iv
 │   ├── 1475-final-prices-with-a-special-discount-in-a-shop
 │   └── 1497-check-if-array-pairs-are-divisible-by-k
+├── _15
+│   └── 1524-number-of-sub-arrays-with-odd-sum
 ├── _16
 │   ├── 1652-defuse-the-bomb
 │   ├── 1657-determine-if-two-strings-are-close
