@@ -127,6 +127,7 @@
 │   ├── 1720-decode-xored-array
 │   ├── 1726-tuple-with-same-product
 │   ├── 1732-find-the-highest-altitude
+│   ├── 1749-maximum-absolute-sum-of-any-subarray
 │   ├── 1752-check-if-array-is-sorted-and-rotated
 │   ├── 1765-map-of-highest-peak
 │   ├── 1769-minimum-number-of-operations-to-move-all-balls-to-each-box
