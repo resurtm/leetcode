@@ -76,6 +76,7 @@
 │   ├── 0827-making-a-large-island
 │   ├── 0840-magic-squares-in-grid
 │   ├── 0841-keys-and-rooms
+│   ├── 0873-length-of-longest-fibonacci-subsequence
 │   ├── 0874-walking-robot-simulation
 │   ├── 0884-uncommon-words-from-two-sentences
 │   └── 0889-construct-binary-tree-from-preorder-and-postorder-traversal
