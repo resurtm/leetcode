@@ -204,6 +204,7 @@
 │   ├── 2924-find-champion-ii
 │   ├── 2937-make-three-strings-equal
 │   ├── 2948-make-lexicographically-smallest-array-by-swapping-elements
+│   ├── 2965-find-missing-and-repeated-values
 │   ├── 2976-minimum-cost-to-convert-string-i
 │   └── 2981-find-longest-special-substring-that-occurs-thrice-i
 ├── _30
