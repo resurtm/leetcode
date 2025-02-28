@@ -1,5 +1,3 @@
-# Index / TOC
-
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
 | 186 | 113 | 5 | 102 |
@@ -189,8 +187,3 @@
 | 3243-shortest-distance-after-road-addition-queries-i | ✅ |   |   |
 | 3254-find-the-power-of-k-size-subarrays-i |   |   | ✅ |
 | 3264-final-array-state-after-k-multiplication-operations-i | ✅ |   |   |
-
-
-# License
-
-[WTFPL](./LICENSE.md)
