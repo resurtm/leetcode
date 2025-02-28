@@ -119,7 +119,8 @@
 │   ├── 1475-final-prices-with-a-special-discount-in-a-shop
 │   └── 1497-check-if-array-pairs-are-divisible-by-k
 ├── _15
-│   └── 1524-number-of-sub-arrays-with-odd-sum
+│   ├── 1524-number-of-sub-arrays-with-odd-sum
+│   └── 1525-number-of-good-ways-to-split-a-string
 ├── _16
 │   ├── 1652-defuse-the-bomb
 │   ├── 1657-determine-if-two-strings-are-close
