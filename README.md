@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 187 | 115 | 7 | 104 |
+| 188 | 116 | 8 | 105 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -178,6 +178,7 @@
 | 2976-minimum-cost-to-convert-string-i | ✅ |   |   |
 | 2981-find-longest-special-substring-that-occurs-thrice-i | ✅ |   |   |
 | 3010-divide-an-array-into-subarrays-with-minimum-cost-i | ✅ |   |   |
+| 3034-number-of-subarrays-that-match-a-pattern-i | ✅ | ✅ | ✅ |
 | 3042-count-prefix-and-suffix-pairs-i | ✅ |   |   |
 | 3043-find-the-length-of-the-longest-common-prefix |   |   | ✅ |
 | 3066-minimum-operations-to-exceed-threshold-value-ii | ✅ |   | ✅ |
