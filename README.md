@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 186 | 114 | 6 | 103 |
+| 187 | 115 | 7 | 104 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -185,6 +185,7 @@
 | 3151-special-array-i | ✅ |   |   |
 | 3160-find-the-number-of-distinct-colors-among-the-balls | ✅ |   |   |
 | 3174-clear-digits | ✅ |   |   |
+| 3210-find-the-encrypted-string | ✅ | ✅ | ✅ |
 | 3223-minimum-length-of-string-after-operations | ✅ |   |   |
 | 3243-shortest-distance-after-road-addition-queries-i | ✅ |   |   |
 | 3254-find-the-power-of-k-size-subarrays-i |   |   | ✅ |
