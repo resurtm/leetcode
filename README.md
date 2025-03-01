@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 186 | 113 | 5 | 102 |
+| 187 | 114 | 6 | 103 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -154,6 +154,7 @@
 | 2419-longest-subarray-with-maximum-bitwise-and |   |   | ✅ |
 | 2425-bitwise-xor-of-all-pairings | ✅ |   |   |
 | 2429-minimize-xor | ✅ |   |   |
+| 2460-apply-operations-to-an-array | ✅ | ✅ | ✅ |
 | 2466-count-ways-to-build-good-strings | ✅ |   |   |
 | 2467-most-profitable-path-in-a-tree | ✅ |   | ✅ |
 | 2471-minimum-number-of-operations-to-sort-a-binary-tree-by-level | ✅ |   |   |
