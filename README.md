@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 187 | 114 | 6 | 103 |
+| 186 | 114 | 6 | 103 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -25,8 +25,7 @@
 | 0145-binary-tree-postorder-traversal |   |   | ✅ |
 | 0146-lru-cache |   |   | ✅ |
 | 0150-evaluate-reverse-polish-notation |   |   | ✅ |
-| 0150-reverse-words-in-a-string |   |   | ✅ |
-| 0151-reverse-words-in-a-string | ✅ |   |   |
+| 0151-reverse-words-in-a-string | ✅ |   | ✅ |
 | 0155-min-stack |   |   | ✅ |
 | 0206-reverse-linked-list |   |   | ✅ |
 | 0211-design-add-and-search-words-data-structure | ✅ |   |   |
