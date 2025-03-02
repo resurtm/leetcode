@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 188 | 116 | 8 | 105 |
+| 189 | 117 | 9 | 106 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -163,6 +163,7 @@
 | 2516-take-k-of-each-character-from-left-and-right |   |   | ✅ |
 | 2558-take-gifts-from-the-richest-pile | ✅ |   |   |
 | 2559-count-vowel-strings-in-ranges | ✅ |   |   |
+| 2570-merge-two-2d-arrays-by-summing-values | ✅ | ✅ | ✅ |
 | 2593-find-score-of-an-array-after-marking-all-elements | ✅ |   |   |
 | 2657-find-the-prefix-common-array-of-two-arrays | ✅ |   |   |
 | 2658-maximum-number-of-fish-in-a-grid | ✅ |   |   |
