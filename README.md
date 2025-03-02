@@ -2,7 +2,7 @@
 
 | Problem | Rust | Golang | Python |
 |:--------|:----:|:------:|:------:|
-| 189 | 117 | 9 | 106 |
+| 190 | 118 | 10 | 107 |
 | 0013-roman-to-integer |   |   |   |
 | 0015-3sum |   |   | ✅ |
 | 0033-search-in-rotated-sorted-array |   |   | ✅ |
@@ -157,6 +157,7 @@
 | 2466-count-ways-to-build-good-strings | ✅ |   |   |
 | 2467-most-profitable-path-in-a-tree | ✅ |   | ✅ |
 | 2471-minimum-number-of-operations-to-sort-a-binary-tree-by-level | ✅ |   |   |
+| 2487-remove-nodes-from-linked-list | ✅ | ✅ | ✅ |
 | 2493-divide-nodes-into-the-maximum-number-of-groups | ✅ |   |   |
 | 2501-longest-square-streak-in-an-array |   |   | ✅ |
 | 2511-maximum-enemy-forts-that-can-be-captured | ✅ |   | ✅ |
